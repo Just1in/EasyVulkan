@@ -1,7 +1,23 @@
 #pragma once
 #include "EasyVKStart.h"
-//¶¨ÒåvulkanÃüÃû¿Õ¼ä£¬Ö®ºó»á°ÑVulkanÖĞÒ»Ğ©»ù±¾¶ÔÏóµÄ·â×°Ğ´ÔÚÆäÖĞ
+//å®šä¹‰vulkanå‘½åç©ºé—´ï¼Œä¹‹åä¼šæŠŠVulkanä¸­ä¸€äº›åŸºæœ¬å¯¹è±¡çš„å°è£…å†™åœ¨å…¶ä¸­
 namespace vulkan 
 {
-
+    class graphicsBase {
+        //é™æ€å˜é‡
+        static graphicsBase singleton;
+        //--------------------
+        graphicsBase() = default;
+        graphicsBase(graphicsBase&&) = delete;
+        ~graphicsBase() {
+            /*å¾…Ch1-4å¡«å……*/
+        }
+    public:
+        //é™æ€å‡½æ•°
+        //è¯¥å‡½æ•°ç”¨äºè®¿é—®å•ä¾‹
+        static graphicsBase& Base() {
+            return singleton;
+        }
+    };
+    inline graphicsBase graphicsBase::singleton;
 }
